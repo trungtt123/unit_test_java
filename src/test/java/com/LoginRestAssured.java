@@ -54,7 +54,7 @@ public class LoginRestAssured extends BaseRestAssuredClass{
 	        rut.setOutput(res.asPrettyString());
 	        
 	        assert resObj.getCode() == 1000;
-	        assert resObj.getMessage() == "OK";
+	        assert resObj.getMessage().equals("OK");
 	        // not null user data
 	        assertNotNull(resObj.getData().getUser());
 	        // not null access token

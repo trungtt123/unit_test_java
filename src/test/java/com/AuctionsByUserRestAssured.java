@@ -57,7 +57,7 @@ public class AuctionsByUserRestAssured extends BaseRestAssuredClass{
 			AuctionsResponseModel resObj = mapper.readValue(res.asString(), AuctionsResponseModel.class);
       
 	        assert resObj.getCode() == 1000;
-	        assert resObj.getMessage() == "OK";
+	        assert resObj.getMessage().equals("OK");
 	        // not null auction
 	        assertNotNull(resObj.getData().getAuctions());
 	        // not null total
@@ -98,7 +98,7 @@ public class AuctionsByUserRestAssured extends BaseRestAssuredClass{
 			AuctionsResponseModel resObj = mapper.readValue(res.asString(), AuctionsResponseModel.class);
       
 	        assert resObj.getCode() == 1000;
-	        assert resObj.getMessage() == "OK";
+	        assert resObj.getMessage().equals("OK");
 	        // not null auction
 	        assertNotNull(resObj.getData().getAuctions());
 	        // not null total
