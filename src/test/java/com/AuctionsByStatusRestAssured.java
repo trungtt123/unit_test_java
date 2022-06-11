@@ -74,7 +74,7 @@ public class AuctionsByStatusRestAssured extends BaseRestAssuredClass{
 	@Test
     public static ResponseUnitTest UnitTest001() {
     	
-    	Map<String, String> params = RequestApiAuctionsByStatus.UnitTest000.params;
+    	Map<String, String> params = RequestApiAuctionsByStatus.UnitTest001.params;
     	ResponseUnitTest rut = new ResponseUnitTest();
     	ObjectMapper mapper = new ObjectMapper();
     	

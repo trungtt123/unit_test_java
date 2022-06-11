@@ -1,18 +1,13 @@
 package core.model.common;
 
-import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import core.model.response.BaseResponseModel;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class AuctionData{
 	
 	@JsonProperty("auction_id")
@@ -23,8 +18,10 @@ public class AuctionData{
 
 	private String title;
 
+	@JsonProperty("start_date")
 	private String startDate;
-
+	
+	@JsonProperty("end_date")
 	private String endDate;
 
 	private int statusId;
@@ -32,6 +29,9 @@ public class AuctionData{
 	private String status;
 	
 	private CategoryData category;
+	
+	@JsonProperty("is_liked")
+	private boolean isLiked;
 }
 
 

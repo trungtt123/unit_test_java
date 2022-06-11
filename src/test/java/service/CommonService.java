@@ -8,9 +8,24 @@ import java.util.List;
 
 import com.AuctionsByStatusRestAssured;
 import com.AuctionsByUserRestAssured;
+import com.CreateAuctionRestAssured;
+import com.CreateCommentRestAssured;
+import com.CreateItemRestAssured;
+import com.DeleteCommentRestAssured;
 import com.DetailAuctionRestAssured;
+import com.EditAuctionRestAssured;
+import com.GetListBidsRestAssured;
+import com.GetListBrandsRestAssured;
+import com.GetListCategoriesRestAssured;
+import com.GetListCommentsRestAssured;
+import com.GetListLikesRestAssured;
+import com.GetNewsRestAssured;
+import com.GetTotalLikesRestAssured;
+import com.LikeAuctionRestAssured;
 import com.LogOutRestAssured;
 import com.LoginRestAssured;
+import com.ReadNewsRestAssured;
+import com.SearchRestAssured;
 import com.SignUpRestAssured;
 
 import core.constant.Constant;
@@ -49,6 +64,69 @@ public class CommonService{
 				break;
 			case (5):
 				listRut = DetailAuctionRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (6):
+				listRut = SearchRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (7):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = CreateAuctionRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (8):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = EditAuctionRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (9):
+				listRut = GetListBrandsRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (10):
+				listRut = GetListCategoriesRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (11):
+				listRut = GetListBidsRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (12):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = CreateItemRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (13):
+				listRut = GetListCommentsRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (14):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = CreateCommentRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (15):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = DeleteCommentRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (16):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = LikeAuctionRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (17):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = GetListLikesRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (18):
+				listRut = GetTotalLikesRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (19):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = GetNewsRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (20):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = ReadNewsRestAssured.run(checkUnit, unitTestId);
 				break;
 			default:
 				break;

@@ -41,6 +41,81 @@ public class CommonHelper {
 	    		for (int i = 0; i < Constant.API_GET_AUCTIONS_DETAIL.length; i++)
 	    	    	System.out.println(i + " --- " + Constant.API_GET_AUCTIONS_DETAIL[i]);
 	    		break;
+	    	case(6):
+	    		System.out.println("List unit test of API_SEARCH");
+	    		for (int i = 0; i < Constant.API_SEARCH.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_SEARCH[i]);
+	    		break;
+	    	case(7):
+	    		System.out.println("List unit test of API_CREATE_AUCTION");
+	    		for (int i = 0; i < Constant.API_CREATE_AUCTION.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_CREATE_AUCTION[i]);
+	    		break;
+	    	case(8):
+	    		System.out.println("List unit test of API_EDIT_AUCTION");
+	    		for (int i = 0; i < Constant.API_EDIT_AUCTION.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_EDIT_AUCTION[i]);
+	    		break;
+	    	case(9):
+	    		System.out.println("List unit test of API_GET_LIST_BRANDS");
+	    		for (int i = 0; i < Constant.API_GET_LIST_BRANDS .length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_GET_LIST_BRANDS[i]);
+	    		break;
+	    	case(10):
+	    		System.out.println("List unit test of API_GET_LIST_CATEGORIES");
+	    		for (int i = 0; i < Constant.API_GET_LIST_CATEGORIES.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_GET_LIST_CATEGORIES[i]);
+	    		break;
+	    	case(11):
+	    		System.out.println("List unit test of API_GET_LIST_CATEGORIES");
+	    		for (int i = 0; i < Constant.API_GET_LIST_BIDS_OF_AUCTION.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_GET_LIST_BIDS_OF_AUCTION[i]);
+	    		break;
+	    	case(12):
+	    		System.out.println("List unit test of API_CREATE_ITEM");
+	    		for (int i = 0; i < Constant.API_CREATE_ITEM.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_CREATE_ITEM[i]);
+	    		break;
+	    	case(13):
+	    		System.out.println("List unit test of API_GET_LIST_COMMENTS_OF_AUCTION");
+	    		for (int i = 0; i < Constant.API_GET_LIST_COMMENTS_OF_AUCTION.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_GET_LIST_COMMENTS_OF_AUCTION[i]);
+	    		break;
+	    	case(14):
+	    		System.out.println("List unit test of API_CREATE_COMMENT");
+	    		for (int i = 0; i < Constant.API_CREATE_COMMENT.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_CREATE_COMMENT[i]);
+	    		break;
+	    	case(15):
+	    		System.out.println("List unit test of API_DELETE_COMMENT");
+	    		for (int i = 0; i < Constant.API_DELETE_COMMENT.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_DELETE_COMMENT[i]);
+	    		break;
+	    	case(16):
+	    		System.out.println("List unit test of API_LIKE_AUCTION");
+	    		for (int i = 0; i < Constant.API_LIKE_AUCTION.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_LIKE_AUCTION[i]);
+	    		break;
+	    	case(17):
+	    		System.out.println("List unit test of API_LIST_LIKES");
+	    		for (int i = 0; i < Constant.API_LIST_LIKES.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_LIST_LIKES[i]);
+	    		break;
+	    	case(18):
+	    		System.out.println("List unit test of API_GET_TOTAL_LIKES_OF_AUCTION");
+	    		for (int i = 0; i < Constant.API_GET_TOTAL_LIKES_OF_AUCTION.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_GET_TOTAL_LIKES_OF_AUCTION[i]);
+	    		break;
+	    	case(19):
+	    		System.out.println("List unit test of API_GET_NEWS");
+	    		for (int i = 0; i < Constant.API_GET_NEWS.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_GET_NEWS[i]);
+	    		break;
+	    	case(20):
+	    		System.out.println("List unit test of API_READ_NEWS");
+	    		for (int i = 0; i < Constant.API_READ_NEWS.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_READ_NEWS[i]);
+	    		break;
 	    	default:
 	    		break;
 		}

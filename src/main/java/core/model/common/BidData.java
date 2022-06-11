@@ -17,4 +17,7 @@ public class BidData {
 	
 	@JsonProperty("user_avatar")
 	private String userAvatar;
+	
+	@JsonProperty("updated_at")
+	private String updatedAt;
 }	
