@@ -20,11 +20,14 @@ import com.GetListCategoriesRestAssured;
 import com.GetListCommentsRestAssured;
 import com.GetListLikesRestAssured;
 import com.GetNewsRestAssured;
+import com.GetNotificationsRestAssured;
+import com.GetSliderRestAssured;
 import com.GetTotalLikesRestAssured;
 import com.LikeAuctionRestAssured;
 import com.LogOutRestAssured;
 import com.LoginRestAssured;
 import com.ReadNewsRestAssured;
+import com.ReadNotificationRestAssured;
 import com.SearchRestAssured;
 import com.SignUpRestAssured;
 
@@ -127,6 +130,19 @@ public class CommonService{
 				LoginRestAssured.init();
 				LoginRestAssured.runUnitTest(0);
 				listRut = ReadNewsRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (21):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = GetNotificationsRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (22):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = ReadNotificationRestAssured.run(checkUnit, unitTestId);
+				break;
+			case (23):
+				listRut = GetSliderRestAssured.run(checkUnit, unitTestId);
 				break;
 			default:
 				break;

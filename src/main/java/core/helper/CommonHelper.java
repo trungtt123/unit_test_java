@@ -116,6 +116,21 @@ public class CommonHelper {
 	    		for (int i = 0; i < Constant.API_READ_NEWS.length; i++)
 	    	    	System.out.println(i + " --- " + Constant.API_READ_NEWS[i]);
 	    		break;
+	    	case(21):
+	    		System.out.println("List unit test of API_GET_NOTIFICATIONS");
+	    		for (int i = 0; i < Constant.API_GET_NOTIFICATIONS.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_GET_NOTIFICATIONS[i]);
+	    		break;
+	    	case(22):
+	    		System.out.println("List unit test of API_READ_NOTIFICATION");
+	    		for (int i = 0; i < Constant.API_READ_NOTIFICATION.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_READ_NOTIFICATION[i]);
+	    		break;
+	    	case(23):
+	    		System.out.println("List unit test of API_GET_SLIDER");
+	    		for (int i = 0; i < Constant.API_GET_SLIDER.length; i++)
+	    	    	System.out.println(i + " --- " + Constant.API_GET_SLIDER[i]);
+	    		break;
 	    	default:
 	    		break;
 		}

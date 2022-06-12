@@ -48,7 +48,7 @@ public class AuctionsByUserRestAssured extends BaseRestAssuredClass{
 	                .contentType(ContentType.JSON)
 	                .params(params)
 	                .when()
-	                .get(RequestApiAuctionsByUser.apiPath + RequestApiAuctionsByUser.UnitTest000.subPath);
+	                .get(RequestApiAuctionsByUser.apiPath + "/" + RequestApiAuctionsByUser.UnitTest000.typeId);
 
 			rut.setInput(params.toString());
 			rut.setName(listUnitTest[0]);
@@ -89,7 +89,7 @@ public class AuctionsByUserRestAssured extends BaseRestAssuredClass{
 	                .contentType(ContentType.JSON)
 	                .params(params)
 	                .when()
-	                .get(RequestApiAuctionsByUser.apiPath + RequestApiAuctionsByUser.UnitTest001.subPath);
+	                .get(RequestApiAuctionsByUser.apiPath + "/" + RequestApiAuctionsByUser.UnitTest001.typeId);
 
 			rut.setInput(params.toString());
 			rut.setName(listUnitTest[1]);
@@ -127,7 +127,7 @@ public class AuctionsByUserRestAssured extends BaseRestAssuredClass{
 	                .contentType(ContentType.JSON)
 	                .params(params)
 	                .when()
-	                .get(RequestApiAuctionsByUser.apiPath + RequestApiAuctionsByUser.UnitTest001.subPath);
+	                .get(RequestApiAuctionsByUser.apiPath + "/" + RequestApiAuctionsByUser.UnitTest001.typeId);
 
 			rut.setInput(params.toString());
 			rut.setName(listUnitTest[2]);

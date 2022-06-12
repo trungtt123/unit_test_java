@@ -17,15 +17,16 @@ public class SignUpRequestModel {
 	private String address;
 	private String name;
 	private String phone;
-	private File file;
+	private File avatar;
 	
-	public SignUpRequestModel(String email, String password, String rePass, String address, String name, String phone, File file) {
+	public SignUpRequestModel(String email, String password, String rePass, String address, String name, String phone, File avatar) {
 		this.email = email;
 		this.password = password;
 		this.rePass = rePass;
 		this.name = name;
+		this.address = address;
 		this.phone = phone;
-		this.file = file;
+		this.avatar = avatar;
 	}
 	public SignUpRequestModel() {
 		

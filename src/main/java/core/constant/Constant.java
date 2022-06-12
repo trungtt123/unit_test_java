@@ -5,12 +5,14 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 
 import java.util.Map;
+import java.util.Random;
 import java.time.format.DateTimeFormatter;
 
 import core.model.request.createauction.CreateAuctionRequestModel;
 import core.model.request.createcomment.CreateCommentRequestModel;
 import core.model.request.createitem.CreateItemRequestModel;
 import core.model.request.editauction.EditAuctionRequestModel;
+import core.model.request.getnotifications.GetNotificationsRequestModel;
 import core.model.request.login.LoginRequestModel;
 import core.model.request.signup.SignUpRequestModel;
 
@@ -44,7 +46,10 @@ public class Constant {
 			 "API_GET_LIST_LIKES",
 			 "API_GET_TOTAL_LIKES_OF_AUCTION",
 			 "API_GET_NEWS",
-			 "API_READ_NEWS"
+			 "API_READ_NEWS",
+			 "API_GET_NOTIFICATIONS",
+			 "API_READ_NOTIFICATION",
+			 "API_GET_SLIDER"
 	};
 	 
 	public static final String[] API_LOGIN = {
@@ -132,6 +137,16 @@ public class Constant {
 	public static final String[]  API_READ_NEWS = {
 			"API_READ_NEWS_UNIT_TEST_000"
 	};
+	public static final String[] API_GET_NOTIFICATIONS = {
+			"API_GET_NOTIFICATIONS_UNIT_TEST_000",
+			"API_GET_NOTIFICATIONS_UNIT_TEST_001"
+	};
+	public static final String[] API_READ_NOTIFICATION = {
+			"API_READ_NOTIFICATION_UNIT_TEST_000"
+	};
+	public static final String[] API_GET_SLIDER = {
+			"API_GET_SLIDER_UNIT_TEST_000"
+	};
 	
 	public static class Request {
 		
@@ -140,7 +155,7 @@ public class Constant {
 			public static String apiPath = "/login"; 
 			public static class UnitTest000 {
 				public static LoginRequestModel requestBody 
-				= new LoginRequestModel( "bruceleemax111@gmail.com", "123456");
+				= new LoginRequestModel( "hungyasuo@gmail.com", "123456");
 			}
 			public static class UnitTest001 {
 				public static LoginRequestModel requestBody 
@@ -157,11 +172,12 @@ public class Constant {
 			public static String apiPath = "/signup"; 
 			public static class UnitTest000 {				
 				public static SignUpRequestModel requestBody 
-				= new SignUpRequestModel("bruceleemax111@gmail.com", "123456","123456","Việt Nam","Hưng","01234567",null);			
+				= new SignUpRequestModel("hungyasuo2@gmail.com", "123456","123456","Việt Nam","Nguyễn Việt Hưng","01234567",null);			
 			}
+			// dang ki tai khoan da ton tai
 			public static class UnitTest001 {				
 				public static SignUpRequestModel requestBody 
-				= new SignUpRequestModel("bruceleemax111@gmail.com", "123456","123456","Việt Nam","Hưng","01234567",null);			
+				= new SignUpRequestModel("hungyasuo@gmail.com", "123456","123456","Việt Nam","Hưng","01234567",null);			
 			}
 		}
 		// define input api log out 
@@ -173,7 +189,7 @@ public class Constant {
 		public static class RequestApiAuctionsByStatus {
 			public static String apiPath = "/auctions/listAuctionsByStatus";
 			public static class UnitTest000 {				
-				public static String subPath = "/1";
+				public static int typeId = 1;
 				public static Map<String, String> params;
 				static {
 					params = new HashMap<String, String>();
@@ -182,7 +198,7 @@ public class Constant {
 				}
 			}
 			public static class UnitTest001 {				
-				public static String subPath = "/3";
+				public static int typeId = 3;
 				public static Map<String, String> params;
 				static {
 					params = new HashMap<String, String>();
@@ -197,7 +213,7 @@ public class Constant {
 		public static class RequestApiAuctionsByUser {
 			public static String apiPath = "/auctions/listAuctionsByUser";
 			public static class UnitTest000 {				
-				public static String subPath = "/1";
+				public static int typeId = 1;
 				public static Map<String, String> params;
 				static {
 					params = new HashMap<String, String>();
@@ -206,7 +222,7 @@ public class Constant {
 				}
 			}
 			public static class UnitTest001 {				
-				public static String subPath = "/4";
+				public static int typeId = 4;
 				public static Map<String, String> params;
 				static {
 					params = new HashMap<String, String>();
@@ -216,7 +232,7 @@ public class Constant {
 				
 			}
 			public static class UnitTest002 {				
-				public static String subPath = "/4";
+				public static int typeId = 4;
 				public static Map<String, String> params;
 				static {
 					params = new HashMap<String, String>();
@@ -230,10 +246,10 @@ public class Constant {
 		public static class RequestApiGetAuctionsDetail {
 			public static String apiPath = "/auctions/detail";
 			public static class UnitTest000 {				
-				public static String subPath = "/1";
+				public static int auctionId = 1;
 			}
 			public static class UnitTest001 {				
-				public static String subPath = "/4";
+				public static int auctionId = 4;
 			}
 		}
 		public static class RequestApiSearch {
@@ -255,6 +271,7 @@ public class Constant {
 				}
 			}
 		}
+		// do title yêu cầu phải là title duy nhất nên thêm biến random để dạo title ngẫu nhiên :))
 		public static class RequestApiCreateAuction {
 			public static String apiPath = "/auctions/create";
 			public static class UnitTest000 {				
@@ -263,12 +280,14 @@ public class Constant {
 					LocalDateTime today = LocalDateTime.now();
 					LocalDateTime startDay = today.plusDays(1);
 					LocalDateTime endDay = today.plusDays(2);
+					Random rand = new Random();
+					int ranNum = rand.nextInt(1000);
 					String startString = startDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					String endString = endDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					requestBody.setCategoryId(1);
 					requestBody.setStartDate(startString);
 					requestBody.setEndDate(endString);
-					requestBody.setTitleNi("Day la title");
+					requestBody.setTitleNi("Day la title " + ranNum);
 				}
 			}
 			// thoi gian sai
@@ -278,10 +297,12 @@ public class Constant {
 					LocalDateTime today = LocalDateTime.now();
 					String todayString = today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					//LocalDateTime tomorrow = today.plusDays(1);
+					Random rand = new Random();
+					int ranNum = rand.nextInt(1000);
 					requestBody.setCategoryId(1);
 					requestBody.setStartDate(todayString);
 					requestBody.setEndDate(todayString);
-					requestBody.setTitleNi("Day la title");
+					requestBody.setTitleNi("Day la title " + ranNum);
 				}
 			}
 			// loi chua login 
@@ -291,12 +312,14 @@ public class Constant {
 					LocalDateTime today = LocalDateTime.now();
 					LocalDateTime startDay = today.plusDays(1);
 					LocalDateTime endDay = today.plusDays(2);
+					Random rand = new Random();
+					int ranNum = rand.nextInt(1000);
 					String startString = startDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					String endString = endDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					requestBody.setCategoryId(1);
 					requestBody.setStartDate(startString);
 					requestBody.setEndDate(endString);
-					requestBody.setTitleNi("Day la title");
+					requestBody.setTitleNi("Day la title " + ranNum);
 				}
 			}
 			// khong ton tai category
@@ -315,55 +338,63 @@ public class Constant {
 				}
 			}
 		}
+		// tài khoản hungyasuo có các auction là 57, 58 (có thể dùng api get auction by user để xem)
 		public static class RequestApiEditAuction {
 			public static String apiPath = "/auctions/edit";
 			
 			public static class UnitTest000 {				
-				public static int auctionId = 17;
+				public static int auctionId = 57;
 				public static EditAuctionRequestModel requestBody = new EditAuctionRequestModel();
 				static {
 					LocalDateTime today = LocalDateTime.now();
 					LocalDateTime startDay = today.plusDays(1);
 					LocalDateTime endDay = today.plusDays(2);
+					Random rand = new Random();
+					int ranNum = rand.nextInt(1000);
 					String startString = startDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					String endString = endDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					requestBody.setCategoryId(1);
 					requestBody.setStartDate(startString);
 					requestBody.setEndDate(endString);
-					requestBody.setTitleNi("Day la title da sua");
+					requestBody.setTitleNi("Day la title da sua " + ranNum);
 				}
 			}
 			// thoi gian sai
 			public static class UnitTest001 {
-				public static int auctionId = 17;
+				public static int auctionId = 57;
 				public static EditAuctionRequestModel requestBody = new EditAuctionRequestModel();
 				static {
 					LocalDateTime today = LocalDateTime.now();
 					String todayString = today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					//LocalDateTime tomorrow = today.plusDays(1);
+					Random rand = new Random();
+					int ranNum = rand.nextInt(1000);
 					requestBody.setCategoryId(1);
 					requestBody.setStartDate(todayString);
 					requestBody.setEndDate(todayString);
-					requestBody.setTitleNi("Day la title");
+					requestBody.setTitleNi("Day la title da sua " + ranNum);
 				}
 			}
 			// categoryId khong ton tai
 			public static class UnitTest002 {	
-				public static int auctionId = 17;
+				public static int auctionId = 57;
 				public static EditAuctionRequestModel requestBody = new EditAuctionRequestModel();
 				static {
 					LocalDateTime today = LocalDateTime.now();
 					LocalDateTime startDay = today.plusDays(1);
 					LocalDateTime endDay = today.plusDays(2);
+					Random rand = new Random();
+					int ranNum = rand.nextInt(1000);
 					String startString = startDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					String endString = endDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					requestBody.setCategoryId(99);
 					requestBody.setStartDate(startString);
 					requestBody.setEndDate(endString);
-					requestBody.setTitleNi("Day la title");
+					requestBody.setTitleNi("Day la title da sua " + ranNum);
 				}
 			}
-			// auctionId da duoc duyet
+			// auctionId đã được duyệt thì không thể thay đổi (tài khoản này chưa được admin duyệt auction nào
+			// nên auctionId để tạm là 12 (auctionId của ai đó ko biết :)) )
 			public static class UnitTest003 {	
 				public static int auctionId = 12;
 				public static EditAuctionRequestModel requestBody = new EditAuctionRequestModel();
@@ -371,12 +402,14 @@ public class Constant {
 					LocalDateTime today = LocalDateTime.now();
 					LocalDateTime startDay = today.plusDays(1);
 					LocalDateTime endDay = today.plusDays(2);
+					Random rand = new Random();
+					int ranNum = rand.nextInt(1000);
 					String startString = startDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					String endString = endDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 					requestBody.setCategoryId(1);
 					requestBody.setStartDate(startString);
 					requestBody.setEndDate(endString);
-					requestBody.setTitleNi("Day la title");
+					requestBody.setTitleNi("Day la title da sua " + ranNum);
 				}
 			}
 		}
@@ -402,11 +435,12 @@ public class Constant {
 				
 			}
 		}
+		// auctionId của tài khoản này là 57, 58
 		public static class RequestApiCreateItem {
 			public static String apiPath = "/items/create";
 			// api chạy đúng
 			public static class UnitTest000 {				
-				public static int auctionId = 21; // auction này đã được thêm items, muốn test unit test này hãy tạo auction khác
+				public static int auctionId = 57; // auction này đã được thêm items, muốn test unit test này hãy tạo auction khác
 				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
 				static {
 					requestBody.setName("Tên sản phẩm");
@@ -417,7 +451,7 @@ public class Constant {
 			}
 			// brand_id không có trong danh sách
 			public static class UnitTest001 {				
-				public static int auctionId = 17; // auction này đã được thêm items, muốn test unit test này hãy tạo auction khác
+				public static int auctionId = 57; // auction này đã được thêm items, muốn test unit test này hãy tạo auction khác
 				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
 				static {
 					requestBody.setName("Tên sản phẩm");
@@ -480,7 +514,7 @@ public class Constant {
 			public static String apiPath = "/updateLike";
 			// api chạy đúng
 			public static class UnitTest000 {				
-				public static int auctionId = 17; 
+				public static int auctionId = 57; 
 			}
 			
 		}
@@ -532,13 +566,45 @@ public class Constant {
 				    params.put("count", "10");
 				}
 			}
-			
 		}
 		public static class RequestApiReadNews {
 			public static String apiPath = "/news/read";
 			public static class UnitTest000 {
 				public static int newId = 1;
 			}
+		}
+		public static class RequestApiGetNotifications {
+			public static String apiPath = "/notifications";
+			public static class UnitTest000 {
+				public static Map<String, String> params;
+				public static GetNotificationsRequestModel requestBody = new GetNotificationsRequestModel();
+				static {
+					params = new HashMap<String, String>();
+					params.put("index", "1");
+				    params.put("count", "10");
+				    requestBody.setIsNotRead("1");
+				}
+			}
+			public static class UnitTest001 {
+				public static Map<String, String> params;
+				public static GetNotificationsRequestModel requestBody = new GetNotificationsRequestModel();
+				static {
+					params = new HashMap<String, String>();
+					params.put("index", "1");
+				    params.put("count", "10");
+				    requestBody.setIsNotRead("0");
+				}
+			}
+		}
+		// auctionDenyId chính là những auctionId của user
+		public static class RequestApiReadNotification {
+			public static String apiPath = "/notifications/read";
+			public static class UnitTest000 {
+				public static int auctionDenyId = 57;
+			}
+		}
+		public static class RequestApiGetSlider {
+			public static String apiPath = "/slider";
 		}
 	}
 }
